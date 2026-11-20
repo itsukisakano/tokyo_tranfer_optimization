@@ -1,24 +1,24 @@
-railway_id,operator,name_ja,name_en,underground_ratio,has_major_bridge,coastal_flag,long_through_service,wind_vulnerability_score
-odpt.Railway:JR-East.Yamanote,JR-East,山手線,Yamanote Line,0.0,0,0,0,2
-odpt.Railway:JR-East.ChuoRapid,JR-East,中央線快速,Chuo Line (Rapid),0.0,1,0,1,4
-odpt.Railway:JR-East.ChuoSobuLocal,JR-East,中央・総武線各駅停車,Chuo-Sobu Line (Local),0.05,1,0,1,4
-odpt.Railway:JR-East.KeihinTohokuNegishi,JR-East,京浜東北線,Keihin-Tohoku Line,0.05,1,1,1,4
-odpt.Railway:JR-East.Tokaido,JR-East,東海道線,Tokaido Line,0.0,1,1,1,5
-odpt.Railway:JR-East.SobuRapid,JR-East,総武線快速,Sobu Line (Rapid),0.25,1,0,1,4
-odpt.Railway:JR-East.Keiyo,JR-East,京葉線,Keiyo Line,0.15,1,1,1,5
-odpt.Railway:JR-East.SaikyoKawagoe,JR-East,埼京線,Saikyo Line,0.10,1,0,1,4
-odpt.Railway:JR-East.ShonanShinjuku,JR-East,湘南新宿ライン,Shonan-Shinjuku Line,0.0,1,1,1,5
-odpt.Railway:JR-East.JobanRapid,JR-East,常磐線快速,Joban Line (Rapid),0.0,1,0,1,4
-odpt.Railway:TokyoMetro.Ginza,TokyoMetro,東京メトロ銀座線,Tokyo Metro Ginza Line,0.95,0,0,0,1
-odpt.Railway:TokyoMetro.Marunouchi,TokyoMetro,東京メトロ丸ノ内線,Tokyo Metro Marunouchi Line,0.90,0,0,0,1
-odpt.Railway:TokyoMetro.Hibiya,TokyoMetro,東京メトロ日比谷線,Tokyo Metro Hibiya Line,0.85,1,0,1,2
-odpt.Railway:TokyoMetro.Tozai,TokyoMetro,東京メトロ東西線,Tokyo Metro Tozai Line,0.55,1,1,1,5
-odpt.Railway:TokyoMetro.Chiyoda,TokyoMetro,東京メトロ千代田線,Tokyo Metro Chiyoda Line,0.85,1,0,1,2
-odpt.Railway:TokyoMetro.Yurakucho,TokyoMetro,東京メトロ有楽町線,Tokyo Metro Yurakucho Line,0.85,1,1,1,2
-odpt.Railway:TokyoMetro.Hanzomon,TokyoMetro,東京メトロ半蔵門線,Tokyo Metro Hanzomon Line,0.95,1,0,1,1
-odpt.Railway:TokyoMetro.Namboku,TokyoMetro,東京メトロ南北線,Tokyo Metro Namboku Line,0.95,0,0,1,1
-odpt.Railway:TokyoMetro.Fukutoshin,TokyoMetro,東京メトロ副都心線,Tokyo Metro Fukutoshin Line,0.95,0,0,1,1
-odpt.Railway:Toei.Asakusa,Toei,都営浅草線,Toei Asakusa Line,0.95,0,0,1,1
-odpt.Railway:Toei.Mita,Toei,都営三田線,Toei Mita Line,0.80,0,0,1,2
-odpt.Railway:Toei.Shinjuku,Toei,都営新宿線,Toei Shinjuku Line,0.80,1,0,1,2
-odpt.Railway:Toei.Oedo,Toei,都営大江戸線,Toei Oedo Line,1.00,0,0,0,1
+railway_id,operator,name_ja,name_en,is_subway,has_river_or_coast,long_through_service
+odpt.Railway:JR-East.Yamanote,JR-East,山手線,Yamanote Line,0,0,0
+odpt.Railway:JR-East.ChuoRapid,JR-East,中央線快速,Chuo Line (Rapid),0,1,1
+odpt.Railway:JR-East.ChuoSobuLocal,JR-East,中央・総武線各駅停車,Chuo-Sobu Line (Local),0,1,1
+odpt.Railway:JR-East.KeihinTohokuNegishi,JR-East,京浜東北線,Keihin-Tohoku Line,0,1,1
+odpt.Railway:JR-East.Tokaido,JR-East,東海道線,Tokaido Line,0,1,1
+odpt.Railway:JR-East.SobuRapid,JR-East,総武線快速,Sobu Line (Rapid),0,1,1
+odpt.Railway:JR-East.Keiyo,JR-East,京葉線,Keiyo Line,0,1,1
+odpt.Railway:JR-East.SaikyoKawagoe,JR-East,埼京線,Saikyo Line,0,1,1
+odpt.Railway:JR-East.ShonanShinjuku,JR-East,湘南新宿ライン,Shonan-Shinjuku Line,0,1,1
+odpt.Railway:JR-East.JobanRapid,JR-East,常磐線快速,Joban Line (Rapid),0,1,1
+odpt.Railway:TokyoMetro.Ginza,TokyoMetro,東京メトロ銀座線,Tokyo Metro Ginza Line,1,0,0
+odpt.Railway:TokyoMetro.Marunouchi,TokyoMetro,東京メトロ丸ノ内線,Tokyo Metro Marunouchi Line,1,0,0
+odpt.Railway:TokyoMetro.Hibiya,TokyoMetro,東京メトロ日比谷線,Tokyo Metro Hibiya Line,1,1,1
+odpt.Railway:TokyoMetro.Tozai,TokyoMetro,東京メトロ東西線,Tokyo Metro Tozai Line,1,1,1
+odpt.Railway:TokyoMetro.Chiyoda,TokyoMetro,東京メトロ千代田線,Tokyo Metro Chiyoda Line,1,1,1
+odpt.Railway:TokyoMetro.Yurakucho,TokyoMetro,東京メトロ有楽町線,Tokyo Metro Yurakucho Line,1,1,1
+odpt.Railway:TokyoMetro.Hanzomon,TokyoMetro,東京メトロ半蔵門線,Tokyo Metro Hanzomon Line,1,1,1
+odpt.Railway:TokyoMetro.Namboku,TokyoMetro,東京メトロ南北線,Tokyo Metro Namboku Line,1,0,1
+odpt.Railway:TokyoMetro.Fukutoshin,TokyoMetro,東京メトロ副都心線,Tokyo Metro Fukutoshin Line,1,0,1
+odpt.Railway:Toei.Asakusa,Toei,都営浅草線,Toei Asakusa Line,1,0,1
+odpt.Railway:Toei.Mita,Toei,都営三田線,Toei Mita Line,1,0,1
+odpt.Railway:Toei.Shinjuku,Toei,都営新宿線,Toei Shinjuku Line,1,1,1
+odpt.Railway:Toei.Oedo,Toei,都営大江戸線,Toei Oedo Line,1,0,0
