@@ -1,52 +1,37 @@
-from datetime import datetime, timezone, timedelta
+import time
 import requests
+from datetime import datetime, timezone, timedelta
 
 JST = timezone(timedelta(hours=9))
-TOKYO_LAT = 35.6812
-TOKYO_LON = 139.7671
+OPEN_METEO_URL = "https://api.open-meteo.com/v1/forecast"
 
 
-def fetch_tokyo_weather() -> dict:
-    """Fetch current weather conditions in central Tokyo via Open-Meteo API."""
-    url = "https://api.open-meteo.com/v1/forecast"
+def fetch_tokyo_weather(lat: float = 35.6812, lon: float = 139.7671, retries: int = 3) -> dict:
     params = {
-        "latitude": TOKYO_LAT,
-        "longitude": TOKYO_LON,
-        "current": [
-            "temperature_2m",
-            "precipitation",
-            "rain",
-            "snowfall",
-            "weather_code",
-            "wind_speed_10m",
-            "wind_direction_10m",
-            "wind_gusts_10m",
-        ],
-        "wind_speed_unit": "ms",  # m/s (Japanese rail regulation standard)
+        "latitude": lat,
+        "longitude": lon,
+        "current": "temperature_2m,precipitation,rain,weather_code,wind_speed_10m,wind_gusts_10m",
         "timezone": "Asia/Tokyo",
     }
 
-    response = requests.get(url, params=params, timeout=15)
-    response.raise_for_status()
-    data = response.json()
-    current = data.get("current", {})
+    last_err = None
+    for attempt in range(1, retries + 1):
+        try:
+            resp = requests.get(OPEN_METEO_URL, params=params, timeout=30)
+            resp.raise_for_status()
+            data = resp.json().get("current", {})
+            return {
+                "fetched_at": datetime.now(JST).isoformat(),
+                "temperature_2m": data.get("temperature_2m"),
+                "precipitation": data.get("precipitation"),
+                "rain": data.get("rain"),
+                "weather_code": data.get("weather_code"),
+                "wind_speed_10m": data.get("wind_speed_10m"),
+                "wind_gusts_10m": data.get("wind_gusts_10m"),
+            }
+        except requests.RequestException as e:
+            last_err = e
+            if attempt < retries:
+                time.sleep(3 * attempt)
 
-    return {
-        "fetched_at_jst": datetime.now(JST).isoformat(),
-        "weather_time": current.get("time"),
-        "temperature_c": current.get("temperature_2m"),
-        "precipitation_mm": current.get("precipitation"),
-        "rain_mm": current.get("rain"),
-        "snowfall_cm": current.get("snowfall"),
-        "weather_code": current.get("weather_code"),
-        "wind_speed_ms": current.get("wind_speed_10m"),
-        "wind_direction_deg": current.get("wind_direction_10m"),
-        "wind_gusts_ms": current.get("wind_gusts_10m"),
-    }
-
-
-if __name__ == "__main__":
-    weather = fetch_tokyo_weather()
-    print("=== Current Tokyo Weather ===")
-    for k, v in weather.items():
-        print(f"{k}: {v}")
+    raise RuntimeError(f"Failed to fetch weather data after {retries} attempts: {last_err}")
